@@ -10,31 +10,30 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/favicon.png" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
   <!-- Firebase Config -->
-  <script src="./assets/firebase/auth.js"></script>
-  <script src="./assets/firebase/jobs.js"></script>
+  <script src="../assets/firebase/auth.js"></script>
+  <script src="../assets/firebase/employer_registration.js"></script>
 </head>
 
 <body>
@@ -42,15 +41,15 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center">
-      <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+      <a href="../index.html" class="logo me-auto"><img src="../assets/img/logo.png" alt="" class="img-fluid"></a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="index.html">Home</a></li>
-          <li><a class="nav-link scrollto" href="about.html">About Us</a></li>
-          <li><a class="nav-link scrollto active" href="jobs.html">Jobs</a></li>
-          <li><a class="nav-link scrollto" href="stories.html">Success Stories</a></li>
-          <li><a class="nav-link scrollto" href="courses.html">Courses</a></li>
-          <li><a class="nav-link scrollto" href="contact.html">Contact Us</a></li>
+          <li><a class="nav-link scrollto" href="../index.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="../about.html">About Us</a></li>
+          <li><a class="nav-link scrollto" href="../jobs.html">Jobs</a></li>
+          <li><a class="nav-link scrollto" href="../stories.html">Success Stories</a></li>
+          <li><a class="nav-link scrollto" href="../courses.html">Courses</a></li>
+          <li><a class="nav-link scrollto" href="../contact.html">Contact Us</a></li>
           <li><a class="getstarted scrollto" href="employer/index.html">Employer Registration</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -63,10 +62,10 @@
     <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
             <ol>
-                <li><a href="index.html">Home</a></li>
-                <li>Jobs</li>
+                <li><a href="../index.html">Employer</a></li>
+                <li>Registration</li>
             </ol>
-            <h2>Jobs</h2>
+            <h2>Employer Registration</h2>
         </div>
     </section>
     <!-- End Breadcrumbs -->
@@ -75,11 +74,11 @@
     <section id="contact" class="contact" style="border-bottom: 5px solid #f3f5fa;">
         <div class="container" data-aos="fade-up">
             <div class="section-title">
-            <h2>Applicant Details</h2>
+            <h2>Employer Details</h2>
             <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
             </div>
             <div class="mt-5 mt-lg-0">
-              <form class="php-email-form" onsubmit="return false">
+              <form class="php-email-form" id="employer-registration" onsubmit="saveEmployersFormData();return false;">
                 <div class="form-group">
                   <label for="name">Full Name</label>
                   <input type="text" class="form-control" name="name" id="name" required>
@@ -100,28 +99,8 @@
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <label for="name">Highest Education</label>
-                    <input type="text" class="form-control" name="edu" id="edu" required>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="name">Experience (years)</label>
-                    <input type="text" class="form-control" name="exp" id="exp" required>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="name">Reference</label>
-                    <input type="text" class="form-control" name="ref" id="ref" required>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="name">Current Work Status</label>
-                    <input type="text" class="form-control" name="work-status" id="work-status" required>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="name">Ready to Relocate</label>
-                    <input type="text" class="form-control" name="relocate" id="relocate" required>
+                    <label for="name">Date of Birth</label>
+                    <input type="text" class="form-control" name="dob" id="dob" required>
                   </div>
                   <div class="form-group col-md-6">
                     <label class="form-label">Industry Type</label>
@@ -137,29 +116,20 @@
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <label for="name">Date of Birth</label>
-                    <input type="text" class="form-control" name="dob" id="dob" required>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="name">Marital Status</label>
-                    <input type="text" class="form-control" name="marital-status" id="marital-status" required>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="name">How soon can you join? (months)</label>
+                    <label for="name">How soon do you want candidates to join? (months)</label>
                     <input type="text" class="form-control" name="joining" id="joining" required>
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="name">Any Criminal Background? If yes, mention details.</label>
-                    <input type="text" class="form-control" name="crime" id="crime" required>
+                    <label for="name">Candidate Type</label>
+                    <select class="form-select" id="candidateType" aria-label="Default select example">
+                      <option selected>Select candidate type...</option>
+                      <option value="Freshers">Freshers</option>
+                      <option value="Trained">Trained</option>
+                      <option value="No preference">No preference</option>
+                    </select>
                   </div>
                 </div>
-                <div class="mb-3">
-                  <label for="formFile" class="form-label">Upload your Resume</label>
-                  <input class="form-control" type="file" id="candidateResume">
-                </div>
-                <div class="text-center"><button type="button" onclick="saveCandidatesFormData()">Submit Application</button></div>
+                <div class="text-center"><button>Submit</button></div>
               </form>
             </div>
         </div>
@@ -237,17 +207,14 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="./assets/vendor/swal.js"></script>
-
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../assets/vendor/swal.js"></script>
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <script src="../assets/js/main.js"></script>
 </body>
-
 </html>

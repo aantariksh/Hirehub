@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <title>Hirehubs - Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="./assets/vendor/bootstrap/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  </head>
+  <body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="candidates.html">Hirehubs Admin</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item"><a class="nav-link" href="candidates.html">Candidates</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="shortlisted.html">Shortlisted</a></li>
+                  <li class="nav-item"><a class="nav-link" href="employers.html">Employers</a></li>
+                  <li class="nav-item"><a class="nav-link" href="selected.html">Selected</a></li>
+              </ul>
+              <div class="d-flex">
+                  <span class="btn btn-warning" style="margin-left: 10px;" onclick="signout()">SignOut</span>
+              </div>
+          </div>
+      </div>
+  </nav>
+  <!-- Navbar Ends -->
+
+  <div class="container my-4">
+    <h1 class="mb-4">Candidate applications</h1>
+
+    <!-- Client Table -->
+    <table class="table table-striped table-hover table-bordered" id="candidateTable">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Education</th>
+            <th scope="col">Experience</th>
+            <th scope="col">Work Status</th>
+            <th scope="col">Industry</th>
+            <!-- <th scope="col">Assign Employer</th> -->
+            <th colspan="2" class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody id="candidateDetails">
+          <tr>
+            <td>Sample Student</td>
+            <td>B. Tech</td>
+            <td>1.5</td>
+            <td>Employed</td>
+            <td>Hotel Management</td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-success" onclick="alert('asign employer')">Assign Employer</button>
+            </td>
+            <td class="text-center"><a href="" class="bi bi-trash-fill text-danger"></a></td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+
+  </body>
+  <!-- Bootstrap JS-->
+  <script src="./assets/vendor/bootstrap/bootstrap.js" ></script>
+  <!-- Firebase JS -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./assets/firebase/auth.js"></script>
+  <script src="./assets/firebase/candidates.js"></script>
+</html>
