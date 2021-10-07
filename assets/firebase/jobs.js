@@ -7,9 +7,12 @@ async function saveCandidatesFormData() {
     
         // Uploading Resume
         const file = document.getElementById("candidateResume").files[0];
-        const fileRef = firebase.storage().ref(`resume/${cId}/` + file.name);
-        const uploadTaskSnapshot = await fileRef.put(file);
-        const resumeLink = await uploadTaskSnapshot.ref.getDownloadURL();
+        var resumeLink = ""
+        if (file) {
+            const fileRef = firebase.storage().ref(`resume/${cId}/` + file.name);
+            const uploadTaskSnapshot = await fileRef.put(file);
+            resumeLink = await uploadTaskSnapshot.ref.getDownloadURL();
+        }
 
         // Upload candidate details
         db.ref(`candidates/c${cId}`).set({
