@@ -28,7 +28,8 @@
                   <li class="nav-item"><a class="nav-link" href="selected.html">Selected</a></li>
               </ul>
               <div class="d-flex">
-                  <span class="btn btn-warning" style="margin-left: 10px;" onclick="signout()">SignOut</span>
+                <a class="btn btn-secondary" style="margin-left: 10px;" href="https://hirehubs.com" target="_blank">Hirehubs Website</a>
+                  <span class="btn btn-warning" style="margin-left: 10px;" onclick="logout()">SignOut</span>
               </div>
           </div>
       </div>
@@ -53,13 +54,7 @@
         </thead>
         <tbody id="employerDetails">
           <tr>
-            <td><a href="employer-details.html?eId=sample">e-ID</a></td>
-            <td>Sample Employer</td>
-            <td>1234568</td>
-            <td>employer@gmail.com</td>
-            <td>Hotel Management</td>
-            <td>Fresher</td>
-            <td><a onclick="" class="bi bi-trash-fill text-danger"></a></td>
+            <td colspan="7">Loading employers data...</td>
           </tr>
         </tbody>
     </table>
@@ -73,6 +68,9 @@
   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Custom Js -->
   <script src="./assets/firebase/auth.js"></script>
   <script src="./assets/firebase/employers.js"></script>
 </html>

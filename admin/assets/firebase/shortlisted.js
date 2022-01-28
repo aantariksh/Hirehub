@@ -1,10 +1,10 @@
 firebase.auth().onAuthStateChanged((user) => {
-    if(user){
-        showAllCandidateDetails()
-    }
+  if(user){
+      showCandidateDetails()
+  }
 })
 
-function showAllCandidateDetails() {
+function showCandidateDetails() {
   const table = document.getElementById("candidateDetails")
   const rowTemplate = `
   <tr>
@@ -15,12 +15,11 @@ function showAllCandidateDetails() {
     <td>{}</td>
     <td>{}</td>
     <td>
-        <a onclick="shortlist('{}')" class="bi bi-check-circle-fill text-success" style="cursor:pointer"></a> &nbsp; 
         <a onclick="removeCandidate('{}')" class="bi bi-trash-fill text-danger" style="cursor:pointer"></a>
     </td>
   </tr>`
 
-  firebase.database().ref('candidates/').on('value', (snapshot) => {
+  firebase.database().ref('shortlisted/').on('value', (snapshot) => {
     const data = snapshot.val()
     console.log(data)
     if (Object.keys(data).length == 1) {
@@ -28,7 +27,7 @@ function showAllCandidateDetails() {
     }
     table.innerHTML = ""
     jQuery.each(data, function (id, d) {
-        if (id!=="newCandidateID"){
+        if (id!=="x"){
             newRow = rowTemplate.format(id, id, d.name, d.edu, d.exp, d.workStatus, d.industry, id, id)
             table.innerHTML += newRow
         }
@@ -40,7 +39,7 @@ function showAllCandidateDetails() {
 
 function removeCandidate(cId) {
   if(confirm('Are you sure you want to remove applicant ', cId, '? This can\'t be undone.')) {
-    firebase.database().ref(`candidates/${cId}`).remove()
+    firebase.database().ref(`shortlisted/${cId}`).remove()
     .then(function () {
       Swal.fire({icon: "success", title: "Removed Candidate"});
     })
@@ -48,25 +47,4 @@ function removeCandidate(cId) {
       Swal.fire({icon: "error", title: "Oops...", text: `${e.message}`});
     });
   }
-}
-
-function shortlist(cId) {
-  oldRef = firebase.database().ref(`candidates/${cId}`)
-  newRef = firebase.database().ref(`shortlisted/${cId}`)
-
-  oldRef.once('value', function(snap)  {
-    newRef.set( snap.val(), function(error) {
-      if( !error ) {  
-        oldRef.remove();
-        Swal.fire({icon: "success", title: "Candidate Shortlisted"});
-      }
-      else {  Swal.fire({icon: "error", title: "Oops...", text: `${error}`}); }
-    });
-  });
-}
-
-function assignCandidateToEmployer(cId, eId) {
-  firebase.database().ref(`selected/${eId}/${cId}`).set({
-    "assignDate": new Date().toDateString()
-  })
 }

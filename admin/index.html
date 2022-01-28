@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <title>Hirehubs - Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="./assets/vendor/bootstrap/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  </head>
+  <body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="candidates.html">Hirehubs Admin</a>
+      <a class="btn btn-secondary" style="margin-left: 10px;" href="https://hirehubs.com" target="_blank">Hirehubs Website</a>
+    </div>
+  </nav>
+  <!-- Navbar Ends -->
+
+  <div class="container my-4 pt-5">
+    <div class="card mx-auto" style="max-width: 500px;">
+        <div class="card-header">Login</div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="login()" id="loginButton">Submit</button>
+          </form>
+        </div>
+    </div>
+  </div>
+
+  </body>
+  <!-- Bootstrap JS-->
+  <script src="./assets/vendor/bootstrap/bootstrap.js" ></script>
+  <!-- Firebase JS -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Custom Js -->
+  <script src="./assets/firebase/auth.js"></script>
+</html>
